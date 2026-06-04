@@ -1,0 +1,4 @@
+@extends('layouts.boostxvn')
+@section('content')
+<div class="container" style="padding:60px 24px"><div class="section-head"><div class="section-tag">❓ Help Center</div><h2>Trung tâm trợ giúp</h2><p>Hướng dẫn sử dụng nền tảng BoostXVN.</p></div><div class="features-grid">@foreach([['📝','Cách đăng đơn','Nạp ví trước, tạo đơn, hệ thống khóa ký quỹ và mở đơn cho booster nhận.'],['💰','Cách nhận đơn','Đăng nhập tài khoản booster, vào marketplace, bấm nhận đơn và làm trong order room.'],['🔒','Ký quỹ hoạt động thế nào','Tiền bị khóa trong ví khách, chỉ giải ngân khi khách xác nhận hoặc admin xử lý tranh chấp.'],['⚖️','Tranh chấp','Hai bên gửi bằng chứng trong phòng đơn, admin xem log và đưa quyết định.']] as $f)<div class="feature-card"><div class="feature-icon fi-blue">{{ $f[0] }}</div><h3>{{ $f[1] }}</h3><p>{{ $f[2] }}</p></div>@endforeach</div></div>
+@endsection

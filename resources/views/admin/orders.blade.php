@@ -1,0 +1,4 @@
+@extends('layouts.boostxvn')
+@section('content')
+<div class="container" style="padding:32px 24px 60px"><h1 style="font-size:32px;margin-bottom:20px">Quản lý đơn hàng</h1><div class="dash-table"><table><thead><tr><th>Mã</th><th>Đơn</th><th>Game</th><th>Khách</th><th>Booster</th><th>Trạng thái</th><th>Giá</th></tr></thead><tbody>@foreach($orders as $order)<tr><td>{{ $order->code }}</td><td><a href="{{ route('orders.show',$order) }}" style="color:var(--accent)">{{ $order->title }}</a></td><td>{{ $order->game->name }}</td><td>{{ $order->customer->name }}</td><td>{{ $order->booster?->name ?? '-' }}</td><td>{{ $order->status }}</td><td>{{ number_format($order->budget,0,',','.') }}₫</td></tr>@endforeach</tbody></table></div><div style="margin-top:20px">{{ $orders->links() }}</div></div>
+@endsection

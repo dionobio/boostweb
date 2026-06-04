@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body { @apply bg-ink text-slate-100 font-sans antialiased; }
+  h1,h2,h3,h4 { @apply font-display font-bold; }
+}
+@layer components {
+  .container-x { @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8; }
+  .glass-nav { @apply sticky top-0 z-50 bg-ink/85 backdrop-blur-xl border-b border-white/10; }
+  .brand-gradient { @apply bg-gradient-to-br from-brand to-violetx; }
+  .text-gradient { @apply bg-gradient-to-br from-brand to-violetx bg-clip-text text-transparent; }
+  .card { @apply bg-panel border border-white/10 rounded-xl2; }
+  .card-hover { @apply transition hover:border-brand/70 hover:shadow-glow hover:-translate-y-0.5; }
+  .btn { @apply inline-flex items-center justify-center rounded-xl px-5 py-2.5 text-sm font-bold transition; }
+  .btn-primary { @apply btn brand-gradient text-white shadow-glow hover:-translate-y-0.5; }
+  .btn-ghost { @apply btn border border-white/15 text-slate-100 hover:border-brand hover:text-brand; }
+  .btn-danger { @apply btn bg-red-500 text-white; }
+  .badge { @apply inline-flex items-center rounded-full px-3 py-1 text-xs font-bold; }
+  .badge-open { @apply badge bg-emerald-500/15 text-emerald-400; }
+  .badge-progress { @apply badge bg-brand/15 text-brand; }
+  .badge-warn { @apply badge bg-amber-500/15 text-amber-400; }
+  .badge-red { @apply badge bg-red-500/15 text-red-400; }
+  .input { @apply w-full rounded-xl border border-white/15 bg-ink/70 px-4 py-3 text-sm text-slate-100 outline-none focus:border-brand; }
+  .label { @apply mb-2 block text-xs font-bold uppercase tracking-wider text-slate-400; }
+  .game-icon { @apply flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl text-2xl; }
+  .sidebar-link { @apply flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-semibold text-slate-400 hover:bg-panel2 hover:text-white; }
+  .sidebar-link-active { @apply bg-panel2 text-brand; }
+}

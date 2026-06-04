@@ -1,0 +1,7 @@
+@extends('layouts.boostxvn')
+@section('content')
+<div class="container" style="padding-top:32px;padding-bottom:60px;max-width:980px">
+  <div class="wallet-hero"><div style="color:var(--text2)">Số dư khả dụng</div><div class="wallet-balance">{{ number_format($wallet->available_balance,0,',','.') }}<span> ₫</span></div><div style="color:var(--text2)">Đang khóa ký quỹ: {{ number_format($wallet->locked_balance,0,',','.') }} ₫</div><div class="wallet-actions"><form method="POST" action="{{ route('wallet.deposit') }}" style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">@csrf<input class="form-input" style="max-width:220px" type="number" name="amount" value="1000000" min="10000"><button class="btn btn-primary">Nạp ví demo</button></form></div></div>
+  <div class="tx-list"><div class="tx-header"><h3>Lịch sử giao dịch</h3></div>@forelse($wallet->transactions()->latest()->get() as $tx)<div class="tx-item"><div class="tx-icon {{ $tx->amount >=0 ? 'tx-in' : 'tx-out' }}">{{ $tx->amount >=0 ? '↗' : '↘' }}</div><div class="tx-body"><div class="tb-title">{{ $tx->description }}</div><div class="tb-sub">{{ $tx->type }} · {{ $tx->created_at->format('d/m/Y H:i') }}</div></div><div class="tx-amount {{ $tx->amount >=0 ? 'pos' : 'neg' }}">{{ $tx->amount >=0 ? '+' : '' }}{{ number_format($tx->amount,0,',','.') }}₫</div></div>@empty<div class="tx-item"><div class="tx-body"><div class="tb-title">Chưa có giao dịch</div></div></div>@endforelse</div>
+</div>
+@endsection

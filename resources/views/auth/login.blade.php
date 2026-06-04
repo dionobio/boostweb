@@ -1,0 +1,4 @@
+@extends('layouts.boostxvn')
+@section('content')
+<div class="container" style="padding:60px 24px;max-width:520px"><div class="modal" style="max-width:none"><h2>Đăng nhập BoostXVN</h2><p>Dùng tài khoản demo hoặc tài khoản đã đăng ký.</p><form method="POST" action="{{ route('login.store') }}">@csrf<div class="form-group"><label>Email</label><input class="form-input" name="email" type="email" value="{{ old('email','customer@demo.vn') }}" required></div><div class="form-group"><label>Mật khẩu</label><input class="form-input" name="password" type="password" value="123456" required></div><button class="btn btn-primary" style="width:100%;padding:13px">Đăng nhập</button></form><p style="margin-top:18px">Chưa có tài khoản? <a href="{{ route('register') }}" style="color:var(--accent)">Đăng ký</a></p><div class="warning-box">Demo: customer@demo.vn / booster@demo.vn / admin@demo.vn — mật khẩu 123456</div></div></div>
+@endsection
